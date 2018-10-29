@@ -30,4 +30,8 @@ export class PostComponent implements OnInit {
 
     }
 
+    public post(): void {
+
+    }
+
 }

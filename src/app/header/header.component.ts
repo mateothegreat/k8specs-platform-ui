@@ -15,7 +15,12 @@ export class HeaderComponent implements OnInit {
     }
 
     public ngOnInit() {
-        
+
+    }
+
+    public menuClick(): void {
+
+
     }
 
 }

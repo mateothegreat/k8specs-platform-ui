@@ -13,9 +13,9 @@ export class AuthService {
         clientID: 'ASUk9Vzu1rh0991fqMAIqvzgtZS4jiqg',
         domain: 'matthewdavis.auth0.com',
         responseType: 'token id_token',
-        // redirectUri: 'http://localhost:4200/callback',
-        redirectUri: 'https://k8specs.com/callback',
-        scope: 'openid'
+        redirectUri: 'http://localhost:4200/callback',
+        // redirectUri: 'https://k8specs.com/callback',
+        scope: 'openid profile'
 
     });
 
@@ -32,6 +32,8 @@ export class AuthService {
     public handleAuthentication(): void {
 
         this.auth0.parseHash((err, authResult) => {
+
+            console.log(authResult);
 
             if (authResult && authResult.accessToken && authResult.idToken) {
 
