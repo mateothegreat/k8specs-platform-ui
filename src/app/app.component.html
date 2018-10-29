@@ -11,52 +11,56 @@
 
 </mat-toolbar>
 
+<div class="content">
 
-<div class="editor">
-
-    <app-controls></app-controls>
-
-    <div class="split-example">
-
-        <split direction="horizontal">
-
-            <split-area size="15">
-
-                <app-editor></app-editor>
-
-            </split-area>
-
-            <split-area size="70">
-
-                <mat-tab-group>
-
-                    <mat-tab label="deployment.yaml">
-
-                        <app-generator></app-generator>
-
-                    </mat-tab>
-
-                    <mat-tab label="service.yaml">
-
-                        <app-generator></app-generator>
-
-                    </mat-tab>
-
-                </mat-tab-group>
-
-            </split-area>
-
-            <split-area size="15">
-
-                <app-editor></app-editor>
-
-            </split-area>
-
-        </split>
-
-    </div>
+    <router-outlet></router-outlet>
 
 </div>
+<!--<div class="editor">-->
+
+<!--<app-controls></app-controls>-->
+
+<!--<div class="split-example">-->
+
+<!--<split direction="horizontal">-->
+
+<!--<split-area size="15">-->
+
+<!--<app-editor></app-editor>-->
+
+<!--</split-area>-->
+
+<!--<split-area size="70">-->
+
+<!--<mat-tab-group>-->
+
+<!--<mat-tab label="deployment.yaml">-->
+
+<!--<app-generator></app-generator>-->
+
+<!--</mat-tab>-->
+
+<!--<mat-tab label="service.yaml">-->
+
+<!--<app-generator></app-generator>-->
+
+<!--</mat-tab>-->
+
+<!--</mat-tab-group>-->
+
+<!--</split-area>-->
+
+<!--<split-area size="15">-->
+
+<!--<app-editor></app-editor>-->
+
+<!--</split-area>-->
+
+<!--</split>-->
+
+<!--</div>-->
+
+<!--</div>-->
 
 <ng-progress [color]="'yellow'"
              [thick]="true"></ng-progress>

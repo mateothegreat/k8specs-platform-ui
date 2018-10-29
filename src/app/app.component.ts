@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DialogService } from './_lib/dialog.service';
-import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -9,9 +9,9 @@ import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
 })
 export class AppComponent {
 
-    public constructor(private dialogService: DialogService) {
-
-        dialogService.open<FormWizardComponent>(FormWizardComponent);
+    public constructor(private router: Router,
+                       private route: ActivatedRoute,
+                       private dialogService: DialogService) {
 
     }
 

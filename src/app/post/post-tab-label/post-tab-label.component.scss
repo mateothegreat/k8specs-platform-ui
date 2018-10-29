@@ -1,0 +1,33 @@
+:host {
+    
+    .wrapper {
+        
+        display: flex;
+        width: 170px;
+        margin-left: -23px;
+        
+        .label {
+            
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .button {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 0 1 20px;
+            
+            mat-icon {
+                
+                font-size: 18px;
+                
+            }
+            
+        }
+        
+    }
+    
+}

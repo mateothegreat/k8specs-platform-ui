@@ -18,6 +18,12 @@ export class DialogService {
 
         this.matDialog.open(componentRef, config);
 
+        // setTimeout(() => {
+        //
+        //     this.matDialog.open(componentRef, config);
+        //
+        // }, 1000);
+
     }
 
 }

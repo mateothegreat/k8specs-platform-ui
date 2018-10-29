@@ -27,6 +27,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgProgressInterceptor, NgProgressModule } from 'ngx-progressbar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { PostComponent } from './post/post.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
 
 @NgModule({
 
@@ -39,7 +43,10 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
         ControlsComponent,
         EditorComponent,
         GeneratorComponent,
-        FormWizardComponent
+        FormWizardComponent,
+        PostComponent,
+        HomeComponent,
+        PostTabLabelComponent
 
     ],
 
@@ -50,6 +57,16 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
         FormsModule,
         ReactiveFormsModule,
+        RouterModule.forRoot([
+
+            {
+
+                path: 'home/:tab',
+                component: HomeComponent
+
+            }
+
+        ]),
 
 
         MatButtonModule,
@@ -82,7 +99,8 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
     entryComponents: [
 
-        FormWizardComponent
+        FormWizardComponent,
+        PostComponent
 
     ],
 
