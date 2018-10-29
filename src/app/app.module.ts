@@ -31,6 +31,8 @@ import { PostComponent } from './post/post.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
+import { HeaderComponent } from './header/header.component';
+import { AuthService } from './_lib/auth.service';
 
 @NgModule({
 
@@ -46,7 +48,8 @@ import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.comp
         FormWizardComponent,
         PostComponent,
         HomeComponent,
-        PostTabLabelComponent
+        PostTabLabelComponent,
+        HeaderComponent
 
     ],
 
@@ -112,7 +115,9 @@ import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.comp
             useClass: NgProgressInterceptor,
             multi: true
 
-        }
+        },
+
+        AuthService,
 
     ],
     bootstrap: [AppComponent]
