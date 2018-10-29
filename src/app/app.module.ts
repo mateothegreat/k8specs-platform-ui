@@ -33,6 +33,7 @@ import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthService } from './_lib/auth.service';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
 
@@ -49,7 +50,8 @@ import { AuthService } from './_lib/auth.service';
         PostComponent,
         HomeComponent,
         PostTabLabelComponent,
-        HeaderComponent
+        HeaderComponent,
+        CallbackComponent
 
     ],
 
@@ -67,9 +69,24 @@ import { AuthService } from './_lib/auth.service';
                 path: 'home/:tab',
                 component: HomeComponent
 
+            }, {
+
+                path: 'callback',
+                component: CallbackComponent
+
+            }, {
+
+                path: 'authorize',
+                component: CallbackComponent
+
+            }, {
+
+                path: 'oauth/callback',
+                component: CallbackComponent
+
             }
 
-        ]),
+        ], { enableTracing: true }),
 
 
         MatButtonModule,

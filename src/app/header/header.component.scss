@@ -1,0 +1,31 @@
+:host {
+    
+    .wrapper {
+        
+        mat-toolbar, .left {
+            
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+        }
+        
+        mat-toolbar {
+            
+            .left {
+                
+                flex: 1;
+                
+            }
+            
+            .right {
+                
+                flex: 0 1 100px;
+                
+            }
+            
+        }
+        
+    }
+    
+}

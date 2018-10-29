@@ -10,10 +10,12 @@ export class AuthService {
 
     public auth0 = new auth0.WebAuth({
 
-        clientID: '0DmPd6SxmJGUvKupLDf1nddfv41WqfA7',
-        domain: 'k8specs.com',
+        clientID: 'ASUk9Vzu1rh0991fqMAIqvzgtZS4jiqg',
+        domain: 'matthewdavis.auth0.com',
         responseType: 'token id_token',
-        redirectUri: 'https://k8specs.com/auth/callback'
+        // redirectUri: 'http://localhost:4200/callback',
+        redirectUri: 'https://k8specs.com/callback',
+        scope: 'openid'
 
     });
 
