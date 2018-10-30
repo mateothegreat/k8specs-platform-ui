@@ -1,4 +1,23 @@
 import { Injectable } from '@angular/core';
+import { DialogService } from '../_lib/dialog.service';
+import { PostComponent } from './post.component';
+import { MonacoFile } from 'ngx-monaco';
+
+export class Tab {
+
+    public index: number;
+    public label: string;
+    public autoFocus: boolean = true;
+
+    public constructor(index: number, label?: string, autoFocus?: boolean) {
+
+        this.index = index;
+        this.label = label || null;
+        this.autoFocus = !!autoFocus;
+
+    }
+
+}
 
 @Injectable({
     providedIn: 'root'
@@ -7,32 +26,74 @@ export class PostService {
 
     public data: any = '';
 
-    public tabs: Array<{}> = [
+    public tabs: Array<Tab> = [];
 
-        {
+    public files: MonacoFile[] = [];
 
-            label: 'deployment.yaml'
+    public constructor(private dialogService: DialogService) {
 
-        }, {
+        this.tabAdd(new Tab(0, 'deployment.yaml'));
+        this.tabAdd(new Tab(0, 'service.yaml'));
 
-            label: 'service.yaml'
+    }
 
-        }, {
+    public open(): void {
 
-            label: 'asd.yaml'
+        this.dialogService.open<PostComponent>(PostComponent, {
 
-        }, {
+            width: '90%',
+            height: '90%'
 
-            label: 'a3f3f.yaml'
+        });
 
-        }, {
+    }
 
-            label: 'asdasfgasgdf.yaml'
+    public tabHasEmptyLast: boolean;
+
+    public tabUpdateLabelByIndex(index: number, label: string) {
+
+        this.tabs[index].label = label;
+
+        if (label.length > 0 && !this.tabHasEmptyLast) {
+
+            this.tabAdd(new Tab(this.tabs.length, null, false));
+
+            this.tabHasEmptyLast = true;
 
         }
 
-    ];
-
-    public constructor() {
     }
+
+    public tabAdd(tab: Tab): void {
+
+        this.tabs.push(tab);
+
+        this.files.push({
+
+            uri: tab.label,
+            language: 'yaml',
+            content: ''
+
+        });
+
+    }
+
+    public tabRemoveByLabel(label: string): void {
+
+        let newTabs = [];
+
+        for (let tab in this.tabs) {
+
+            if (this.tabs[tab].label != label) {
+
+                newTabs.push(this.tabs[tab]);
+
+            }
+
+        }
+
+        this.tabs = newTabs;
+
+    }
+
 }

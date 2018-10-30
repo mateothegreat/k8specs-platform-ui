@@ -12,6 +12,17 @@ body {
     
 }
 
-* {
+//mat-tab-group, .mat-tab-body, .mat-tab-body-content, .mat-tab-body-wrapper {
+//
+//    height: 100%;
+//
+//}
 
+monaco-editor {
+    
+    height: 100%;
+    width: 100%;
+    display: block;
+    
 }
+

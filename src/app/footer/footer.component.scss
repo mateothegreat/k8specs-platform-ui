@@ -1,0 +1,38 @@
+:host {
+    
+    .wrapper {
+        
+        position: absolute;
+        
+        bottom: 15px;
+        right: 15px;
+        
+        .right {
+            
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            
+            &:hover {
+                
+                color: purple;
+                
+                mat-icon {
+                    
+                    color: purple;
+                    
+                }
+                
+            }
+            
+            button {
+                
+                margin: 5px;
+                
+            }
+            
+        }
+        
+    }
+    
+}

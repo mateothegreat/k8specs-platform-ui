@@ -12,11 +12,14 @@ export class DialogService {
 
     }
 
-    public open<T>(componentRef: ComponentType<T>) {
+    public open<T>(componentRef: ComponentType<T>, config?: { width?: string, height?: string }) {
 
-        let config: MatDialogConfig = new MatDialogConfig();
+        let _config: MatDialogConfig = new MatDialogConfig();
 
-        this.matDialog.open(componentRef, config);
+        _config.width = config && config.width || '500px';
+        _config.height = config && config.height || '500px';
+
+        this.matDialog.open(componentRef, _config);
 
         // setTimeout(() => {
         //

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostService } from './post.service';
+import { MonacoEditorDirective } from 'ngx-monaco';
 
 @Component({
     selector: 'app-post',
@@ -9,18 +9,52 @@ import { PostService } from './post.service';
 })
 export class PostComponent implements OnInit {
 
-    public formGroup = new FormGroup({
+    public currentIndex: number = 0;
 
-        name: new FormControl('', [
+    public readonly monacoOptions = {
 
-            Validators.required,
-            Validators.pattern('^[a-zA-Z0-9-_]+$'),
-            Validators.minLength(1),
-            Validators.maxLength(255)
+        quickSuggestions: true,
+        lineNumbers: true,
+        cursorBlinking: 'phase',
+        scrollBeyondLastLine: false,
+        autoIndent: true,
+        formatOnType: true,
+        formatOnPaste: true,
+        codeLens: true,
 
-        ])
+    };
 
-    });
+//     public files: MonacoFile[] = [
+//
+//         {
+//
+//             uri: 'deploymen.yaml',
+//             language: 'yaml',
+//             content: `apiVersion: apps/v1
+// kind: Deployment
+// metadata:
+//   name: nginx-deployment
+//   namespace: default
+//   labels:
+//     app: nginx
+// spec:
+//   replicas: 1
+//   selector:
+//     matchLabels:
+//       apps.deployment: nginx
+//   template:
+//     metadata:
+//       labels:
+//         apps.deployment: nginx
+//     spec:
+//       containers:
+//       - name: nginx
+//         image: nginx:alpine`
+//         }
+//     ];
+
+    @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
+
 
     public constructor(public postService: PostService) {
 
@@ -31,6 +65,16 @@ export class PostComponent implements OnInit {
     }
 
     public post(): void {
+
+    }
+
+    public selectedIndexChange(newIndex: number): void {
+
+        this.editor.file = this.postService.files[newIndex];
+        console.log('selected index change', newIndex);
+        console.log(this.postService.files);
+
+        this.currentIndex = newIndex;
 
     }
 

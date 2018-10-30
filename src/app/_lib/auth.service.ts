@@ -15,7 +15,7 @@ export class AuthService {
         responseType: 'token id_token',
         redirectUri: 'http://localhost:4200/callback',
         // redirectUri: 'https://k8specs.com/callback',
-        scope: 'openid profile'
+        scope: 'openid profile email'
 
     });
 
@@ -33,6 +33,7 @@ export class AuthService {
 
         this.auth0.parseHash((err, authResult) => {
 
+            console.log(err);
             console.log(authResult);
 
             if (authResult && authResult.accessToken && authResult.idToken) {

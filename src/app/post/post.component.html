@@ -4,50 +4,37 @@
 
     <mat-dialog-content>
 
-        <!--<nav mat-tab-nav-bar>-->
+        <mat-tab-group #tabGroup
+                       disableRipple="true"
+                       (selectedIndexChange)="selectedIndexChange($event)"
+                       [dynamicHeight]="true">
 
-        <!--<a mat-tab-link-->
-        <!--*ngFor="let tab of postService.tabs">-->
-
-        <!--{{ tab.label }}-->
-
-        <!--</a>-->
-
-
-        <!--</nav>-->
-
-        <mat-tab-group>
-
-            <mat-tab>
+            <mat-tab *ngFor="let tab of postService.tabs; let i = index">
 
                 <ng-template mat-tab-label>
 
-                    <app-post-tab-label label="deployment.yaml"></app-post-tab-label>
+                    <app-post-tab-label [label]="tab.label"
+                                        [autoFocus]="tab.autoFocus"
+                                        [index]="i"></app-post-tab-label>
 
                 </ng-template>
-
-                <ngx-codemirror [(ngModel)]="postService.data"
-                                autoFocus
-                                [options]="{
-
-                        lineNumbers: true,
-                        theme: 'material',
-                        mode: 'yaml'
-
-                  }"></ngx-codemirror>
 
             </mat-tab>
 
         </mat-tab-group>
+
+        <monaco-editor theme="vs-dark"
+                       [file]="postService.files[currentIndex]"
+                       [options]="monacoOptions"></monaco-editor>
 
     </mat-dialog-content>
 
     <mat-dialog-actions align="end">
 
         <button mat-button mat-dialog-close>Cancel</button>
+
         <button mat-button
                 (click)="post()"
-                [disabled]="!formGroup.valid"
                 cdkFocusInitial>
 
             Post

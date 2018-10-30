@@ -27,13 +27,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgProgressInterceptor, NgProgressModule } from 'ngx-progressbar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
-import { PostComponent } from './post/post.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthService } from './_lib/auth.service';
 import { CallbackComponent } from './callback/callback.component';
+import { PostService } from './post/post.service';
+import { FooterComponent } from './footer/footer.component';
+import { COMPLETION_PROVIDERS, MonacoEditorModule } from 'ngx-monaco';
+import { KubernetesCompletionService } from './_lib/editor/kubernetes-completion.service';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
 
@@ -51,7 +55,8 @@ import { CallbackComponent } from './callback/callback.component';
         HomeComponent,
         PostTabLabelComponent,
         HeaderComponent,
-        CallbackComponent
+        CallbackComponent,
+        FooterComponent,
 
     ],
 
@@ -86,7 +91,7 @@ import { CallbackComponent } from './callback/callback.component';
 
             }
 
-        ], { enableTracing: true }),
+        ], { enableTracing: false }),
 
 
         MatButtonModule,
@@ -103,6 +108,7 @@ import { CallbackComponent } from './callback/callback.component';
 
         AngularSplitModule,
         CodemirrorModule,
+        MonacoEditorModule.forRoot(),
         NgProgressModule,
         ToastrModule.forRoot({
 
@@ -133,10 +139,19 @@ import { CallbackComponent } from './callback/callback.component';
             multi: true
 
         },
+        {
+
+            provide: COMPLETION_PROVIDERS,
+            useClass: KubernetesCompletionService,
+            multi: true
+
+        },
 
         AuthService,
+        PostService,
 
     ],
+
     bootstrap: [AppComponent]
 
 })

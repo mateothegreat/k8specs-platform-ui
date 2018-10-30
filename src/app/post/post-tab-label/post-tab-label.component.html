@@ -1,12 +1,21 @@
 <div class="wrapper">
 
-    <div class="label">
+    <form [formGroup]="formGroup">
 
-        {{ label }}
+        <mat-form-field>
 
-    </div>
+            <input matInput
+                   [value]="label"
+                   placeholder="Enter a filename"
+                   formControlName="name"
+                   [autofocus]="autoFocus">
 
-    <div class="button">
+        </mat-form-field>
+
+    </form>
+
+    <div class="button"
+         (click)="removeButtonClick()">
 
         <mat-icon>close</mat-icon>
 

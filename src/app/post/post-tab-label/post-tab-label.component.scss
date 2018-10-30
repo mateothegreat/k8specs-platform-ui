@@ -3,14 +3,27 @@
     .wrapper {
         
         display: flex;
-        width: 170px;
-        margin-left: -23px;
-        
-        .label {
+        min-width: 200px;
+        monaco-editor {
+            height: 500px;
+            width: 500px;
+            display: block;
+        }
+        input {
             
-            display: flex;
-            flex: 1;
-            justify-content: center;
+            margin-left: -28px;
+            font-size: 17px;
+            border: 0;
+            outline: none;
+            background: transparent;
+            width: 204px;
+            
+        }
+        
+        mat-ink-bar {
+            
+            display: none !important;
+            
         }
         
         .button {
@@ -22,9 +35,23 @@
             
             mat-icon {
                 
+                cursor: pointer !important;
+                
                 font-size: 18px;
                 
+                &:hover {
+                    
+                    color: red;
+                    
+                }
+                
             }
+            
+        }
+        
+        input {
+            
+            padding: 10px;
             
         }
         

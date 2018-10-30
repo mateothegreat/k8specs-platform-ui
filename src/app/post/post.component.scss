@@ -2,7 +2,30 @@
     
     .wrapper {
         
-        width: 600px;
+        width: 100%;
+        height: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        
+        h1 {
+            
+            flex: 0 1 32px;
+            
+        }
+        
+        mat-dialog-content {
+            
+            flex: 1;
+            max-height: unset;
+            
+        }
+        
+        mat-dialog-actions {
+            
+            flex: 0 1 70px;
+            
+        }
         
     }
     

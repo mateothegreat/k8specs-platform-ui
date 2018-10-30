@@ -19,6 +19,16 @@
         <div class="right">
 
             <button mat-raised-button
+                    color="accent"
+                    (click)="postService.open()">
+
+
+                <mat-icon>add_comment</mat-icon>
+                Create Post
+
+            </button>
+
+            <button mat-raised-button
                     (click)="authService.login()">
 
                 Login
