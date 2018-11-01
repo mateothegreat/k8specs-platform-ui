@@ -28,7 +28,7 @@
                             {
                                 "glob": "**/*",
                                 "input": "node_modules/monaco-editor/min",
-                                "output": "/assets/monaco"
+                                "output": "/monaco"
                             }
                         ],
                         "styles": [
