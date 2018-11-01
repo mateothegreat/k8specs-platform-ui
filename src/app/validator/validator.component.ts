@@ -11,7 +11,20 @@ export class ValidatorComponent implements OnInit {
 
     // @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
 
-    public code: any;
+    public code: any = `apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  type: NodePort
+  selector:
+    app: nginx
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080`;
 
     public consoleOutputs: string = 'Waiting for input...';
 

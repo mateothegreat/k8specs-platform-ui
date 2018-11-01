@@ -9,7 +9,7 @@ RUN npm install
 COPY . .
 
 #RUN npm run build
-RUN npm run serve:prod
+CMD npm run serve:prod
 #FROM nginx:alpine
 #
 #RUN rm -rf /usr/share/nginx/html
