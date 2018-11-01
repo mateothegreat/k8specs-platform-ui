@@ -15,7 +15,7 @@ export class AppComponent {
                        private dialogService: DialogService,
                        private loginService: LoginService) {
 
-        loginService.open();
+        // loginService.open();
 
     }
 

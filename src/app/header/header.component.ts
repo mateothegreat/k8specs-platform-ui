@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_lib/auth.service';
 import { PostService } from '../post/post.service';
 import { LoginService } from '../login/login.service';
+import { ValidatorService } from '../validator/validator.service';
 
 @Component({
     selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
 
     public constructor(public authService: AuthService,
                        public postService: PostService,
-                       public loginService: LoginService) {
+                       public loginService: LoginService,
+                       public validatorService: ValidatorService) {
 
         authService.handleAuthentication();
 

@@ -10,7 +10,7 @@ import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
 import { AutofocusDirective } from './_lib/AutofocusDirective';
 import { ToastrModule } from 'ngx-toastr';
 import { NgProgressInterceptor, NgProgressModule } from 'ngx-progressbar';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
@@ -25,6 +25,7 @@ import { PostComponent } from './post/post.component';
 import { LoginModule } from './login/login.module';
 import { LoginService } from './login/login.service';
 import { SharedModule } from './shared/shared.module';
+import { ValidatorComponent } from './validator/validator.component';
 
 @NgModule({
 
@@ -44,6 +45,7 @@ import { SharedModule } from './shared/shared.module';
         HeaderComponent,
         CallbackComponent,
         FooterComponent,
+        ValidatorComponent,
 
     ],
 
@@ -51,7 +53,7 @@ import { SharedModule } from './shared/shared.module';
 
         BrowserModule,
         BrowserAnimationsModule,
-
+        HttpClientModule,
 
         RouterModule.forRoot([
 
@@ -59,6 +61,11 @@ import { SharedModule } from './shared/shared.module';
 
                 path: 'home/:tab',
                 component: HomeComponent
+
+            }, {
+
+                path: 'validator',
+                component: ValidatorComponent
 
             }, {
 
@@ -102,7 +109,8 @@ import { SharedModule } from './shared/shared.module';
     entryComponents: [
 
         FormWizardComponent,
-        PostComponent
+        PostComponent,
+        ValidatorComponent,
 
     ],
 

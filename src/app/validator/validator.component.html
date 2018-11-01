@@ -1,0 +1,44 @@
+<div class="wrapper">
+
+    <div class="top">
+
+        <monaco-editor theme="vs-dark"
+                       (fileChange)="editorChange($event)"
+                       [options]="monacoService.monacoOptions"></monaco-editor>
+
+    </div>
+
+    <div class="bottom">
+
+        <div class="head">
+
+            <div class="left">
+
+
+            </div>
+
+            <div class="right">
+
+                <button mat-raised-button
+                        color="primary"
+                        (click)="validate()">
+
+                    <mat-icon>spellcheck</mat-icon>
+
+                    Validate
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="console">
+
+            {{ consoleOutputs }}
+
+        </div>
+
+    </div>
+
+</div>
