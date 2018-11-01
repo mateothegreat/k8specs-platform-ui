@@ -29,9 +29,11 @@ form {
 //
 //}
 
-monaco-editor {
-    
-    height: 100%;
+ngx-monaco-editor, .monaco-editor, .editor {
+    .editorContainer {
+        height: calc(100vh - 100px) !important;
+    }
+    height: 100% !important;
     width: 100%;
     display: block;
     
