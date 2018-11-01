@@ -26,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
 import { ValidatorComponent } from './validator/validator.component';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
 
@@ -117,6 +118,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ],
 
     providers: [
+        { provide: LocationStrategy, useClass: PathLocationStrategy },
 
         {
 
