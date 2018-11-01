@@ -11,7 +11,7 @@ export class ValidatorComponent implements OnInit {
 
     // @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
 
-    private currentFile: any;
+    public code: any;
 
     public consoleOutputs: string = 'Waiting for input...';
 
@@ -31,17 +31,9 @@ export class ValidatorComponent implements OnInit {
 
     }
 
-    public editorChange(e: any): void {
-
-        console.log(e);
-
-        this.currentFile = e.content;
-
-    }
-
     public validate(): void {
 
-        this.validatorService.validate(this.currentFile).subscribe((results: any) => {
+        this.validatorService.validate(this.code).subscribe((results: any) => {
 
             console.log(results);
 

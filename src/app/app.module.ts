@@ -25,6 +25,7 @@ import { LoginService } from './login/login.service';
 import { SharedModule } from './shared/shared.module';
 import { ValidatorComponent } from './validator/validator.component';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 
@@ -52,6 +53,8 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
 
         BrowserModule,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
+        FormsModule,
         HttpClientModule,
 
         RouterModule.forRoot([

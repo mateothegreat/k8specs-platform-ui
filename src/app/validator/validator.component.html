@@ -3,8 +3,8 @@
     <div class="top">
 
         <ngx-monaco-editor theme="vs-dark"
-                           (fileChange)="editorChange($event)"
-                           [options]="monacoService.monacoOptions"></ngx-monaco-editor>
+                           [(ngModel)]="code"
+                           [options]="{theme: 'vs-dark', language: 'yaml'}"></ngx-monaco-editor>
 
     </div>
 
