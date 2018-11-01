@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MonacoService } from '../_lib/monaco.service';
 import { ValidatorService } from './validator.service';
-import { MonacoEditorDirective } from 'ngx-monaco';
 
 @Component({
     selector: 'app-validator',
@@ -10,7 +9,7 @@ import { MonacoEditorDirective } from 'ngx-monaco';
 })
 export class ValidatorComponent implements OnInit {
 
-    @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
+    // @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
 
     private currentFile: any;
 
@@ -22,13 +21,13 @@ export class ValidatorComponent implements OnInit {
 
     public ngOnInit() {
 
-        this.editor.open({
-
-            uri: 'input.yaml',
-            language: 'yaml',
-            content: 'asdf'
-
-        });
+        // this.editor.open({
+        //
+        //     uri: 'input.yaml',
+        //     language: 'yaml',
+        //     content: 'asdf'
+        //
+        // });
 
     }
 

@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostService } from './post.service';
-import { MonacoEditorDirective } from 'ngx-monaco';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -68,7 +67,7 @@ export class PostComponent implements OnInit {
 //         }
 //     ];
 
-    @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
+    // @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
 
 
     public constructor(public postService: PostService) {
@@ -77,7 +76,7 @@ export class PostComponent implements OnInit {
 
     public ngOnInit() {
 
-        this.editor.open(this.postService.files[0]);
+        // this.editor.open(this.postService.files[0]);
 
     }
 
@@ -91,7 +90,7 @@ export class PostComponent implements OnInit {
 
         this.isTabChanging = true;
 
-        this.editor.open(this.postService.files[newIndex]);
+        // this.editor.open(this.postService.files[newIndex]);
 
         this.currentIndex = newIndex;
 
@@ -103,7 +102,7 @@ export class PostComponent implements OnInit {
 
         if (!this.isTabChanging) {
 
-            this.postService.files[this.currentIndex] = e;
+            // this.postService.files[this.currentIndex] = e;
 
         }
 

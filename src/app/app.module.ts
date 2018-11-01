@@ -19,13 +19,12 @@ import { AuthService } from './_lib/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { PostService } from './post/post.service';
 import { FooterComponent } from './footer/footer.component';
-import { COMPLETION_PROVIDERS, MonacoEditorModule } from 'ngx-monaco';
-import { KubernetesCompletionService } from './_lib/editor/kubernetes-completion.service';
 import { PostComponent } from './post/post.component';
 import { LoginModule } from './login/login.module';
 import { LoginService } from './login/login.service';
 import { SharedModule } from './shared/shared.module';
 import { ValidatorComponent } from './validator/validator.component';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 @NgModule({
 
@@ -123,13 +122,13 @@ import { ValidatorComponent } from './validator/validator.component';
             multi: true
 
         },
-        {
-
-            provide: COMPLETION_PROVIDERS,
-            useClass: KubernetesCompletionService,
-            multi: true
-
-        },
+        // {
+        //
+        //     provide: COMPLETION_PROVIDERS,
+        //     useClass: KubernetesCompletionService,
+        //     multi: true
+        //
+        // },
 
         AuthService,
         LoginService,

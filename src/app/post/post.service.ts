@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DialogService } from '../_lib/dialog.service';
 import { PostComponent } from './post.component';
-import { MonacoFile } from 'ngx-monaco';
 
 export class Tab {
 
@@ -25,7 +24,8 @@ export class Tab {
 export class PostService {
 
     public tabs: Array<Tab> = [];
-    public files: MonacoFile[] = [];
+
+    // public files: MonacoFile[] = [];
 
     public constructor(private dialogService: DialogService) {
 
@@ -66,13 +66,13 @@ export class PostService {
 
         this.tabs.push(tab);
 
-        this.files.push({
-
-            uri: tab.label,
-            language: 'yaml',
-            content: 'content: ' + tab.label
-
-        });
+        // this.files.push({
+        //
+        //     uri: tab.label,
+        //     language: 'yaml',
+        //     content: 'content: ' + tab.label
+        //
+        // });
 
     }
 

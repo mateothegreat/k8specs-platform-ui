@@ -1,70 +1,70 @@
-<form [formGroup]="formGroup">
+<!--<form [formGroup]="formGroup">-->
 
-    <div class="wrapper">
+<!--<div class="wrapper">-->
 
-        <h1 mat-dialog-title>Create Post</h1>
+<!--<h1 mat-dialog-title>Create Post</h1>-->
 
-        <mat-dialog-content>
+<!--<mat-dialog-content>-->
 
-            <mat-tab-group #tabGroup
-                           disableRipple="true"
-                           (selectedIndexChange)="selectedIndexChange($event)"
-                           [dynamicHeight]="true">
+<!--<mat-tab-group #tabGroup-->
+<!--disableRipple="true"-->
+<!--(selectedIndexChange)="selectedIndexChange($event)"-->
+<!--[dynamicHeight]="true">-->
 
-                <mat-tab *ngFor="let tab of postService.tabs; let i = index">
+<!--<mat-tab *ngFor="let tab of postService.tabs; let i = index">-->
 
-                    <ng-template mat-tab-label>
+<!--<ng-template mat-tab-label>-->
 
-                        <app-post-tab-label [label]="tab.label"
-                                            [autoFocus]="tab.autoFocus"
-                                            [index]="i"></app-post-tab-label>
+<!--<app-post-tab-label [label]="tab.label"-->
+<!--[autoFocus]="tab.autoFocus"-->
+<!--[index]="i"></app-post-tab-label>-->
 
-                    </ng-template>
+<!--</ng-template>-->
 
-                </mat-tab>
+<!--</mat-tab>-->
 
-            </mat-tab-group>
+<!--</mat-tab-group>-->
 
-            <monaco-editor theme="vs-dark"
-                           (fileChange)="editorChange($event)"
-                           [options]="monacoOptions"></monaco-editor>
+<!--<monaco-editor theme="vs-dark"-->
+<!--(fileChange)="editorChange($event)"-->
+<!--[options]="monacoOptions"></monaco-editor>-->
 
-        </mat-dialog-content>
+<!--</mat-dialog-content>-->
 
-        <mat-dialog-actions>
+<!--<mat-dialog-actions>-->
 
-            <div class="left">
+<!--<div class="left">-->
 
-                <mat-form-field>
+<!--<mat-form-field>-->
 
-                    <mat-select formControlName="visibility"
-                                placeholder="Visibility">
+<!--<mat-select formControlName="visibility"-->
+<!--placeholder="Visibility">-->
 
-                        <mat-option value="public" selected>Public</mat-option>
-                        <mat-option value="private">Private</mat-option>
+<!--<mat-option value="public" selected>Public</mat-option>-->
+<!--<mat-option value="private">Private</mat-option>-->
 
-                    </mat-select>
+<!--</mat-select>-->
 
-                </mat-form-field>
+<!--</mat-form-field>-->
 
-            </div>
+<!--</div>-->
 
-            <div class="right">
+<!--<div class="right">-->
 
-                <button mat-button mat-dialog-close>Cancel</button>
+<!--<button mat-button mat-dialog-close>Cancel</button>-->
 
-                <button mat-button
-                        (click)="post()"
-                        cdkFocusInitial>
+<!--<button mat-button-->
+<!--(click)="post()"-->
+<!--cdkFocusInitial>-->
 
-                    Post
+<!--Post-->
 
-                </button>
+<!--</button>-->
 
-            </div>
+<!--</div>-->
 
-        </mat-dialog-actions>
+<!--</mat-dialog-actions>-->
 
-    </div>
+<!--</div>-->
 
-</form>
+<!--</form>-->

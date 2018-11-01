@@ -29,7 +29,7 @@
         "codemirror": "^5.41.0",
         "core-js": "^2.5.4",
         "monaco-editor": "^0.14.3",
-        "ngx-monaco": "^0.8.0",
+        "ngx-monaco-editor": "^6.0.0",
         "ngx-progressbar": "^2.1.1",
         "ngx-toastr": "^9.1.1",
         "rxjs": "~6.3.3",
