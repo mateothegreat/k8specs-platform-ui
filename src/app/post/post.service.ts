@@ -24,16 +24,14 @@ export class Tab {
 })
 export class PostService {
 
-    public data: any = '';
-
     public tabs: Array<Tab> = [];
-
     public files: MonacoFile[] = [];
 
     public constructor(private dialogService: DialogService) {
 
-        this.tabAdd(new Tab(0, 'deployment.yaml'));
-        this.tabAdd(new Tab(0, 'service.yaml'));
+        this.tabAdd(new Tab(0, 'new-file.yaml'));
+        // this.tabAdd(new Tab(0, 'deployment.yaml'));
+        // this.tabAdd(new Tab(0, 'service.yaml'));
 
     }
 
@@ -72,7 +70,7 @@ export class PostService {
 
             uri: tab.label,
             language: 'yaml',
-            content: ''
+            content: 'content: ' + tab.label
 
         });
 

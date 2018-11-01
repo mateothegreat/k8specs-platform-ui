@@ -1,7 +1,6 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/purple-green.css';
 @import "~ngx-toastr/toastr.css";
-@import "~codemirror/lib/codemirror.css";
-@import "~codemirror/theme/material.css";
 
 body {
     
@@ -10,6 +9,12 @@ body {
     
     font-family: Roboto, "Helvetica Neue", sans-serif;
     
+    background: linear-gradient(90deg, #29262a 0%, #131313 100%);
+}
+
+form {
+    
+    height: 100%;
 }
 
 //mat-tab-group, .mat-tab-body, .mat-tab-body-content, .mat-tab-body-wrapper {
@@ -17,6 +22,12 @@ body {
 //    height: 100%;
 //
 //}
+
+.mat-toolbar.mat-primary {
+    
+    background: linear-gradient(0deg, #223994 0%, #3a47d5 100%);
+    
+}
 
 monaco-editor {
     

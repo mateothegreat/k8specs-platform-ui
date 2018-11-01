@@ -1,32 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularSplitModule } from 'angular-split';
 
 import { AppComponent } from './app.component';
-import {
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    MatStepperModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTreeModule
-} from '@angular/material';
 import { EditorComponent } from './editor/editor.component';
 import { GeneratorComponent } from './generator/generator.component';
 import { ControlsComponent } from './controls/controls.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
 import { AutofocusDirective } from './_lib/AutofocusDirective';
 import { ToastrModule } from 'ngx-toastr';
 import { NgProgressInterceptor, NgProgressModule } from 'ngx-progressbar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
@@ -38,6 +22,9 @@ import { FooterComponent } from './footer/footer.component';
 import { COMPLETION_PROVIDERS, MonacoEditorModule } from 'ngx-monaco';
 import { KubernetesCompletionService } from './_lib/editor/kubernetes-completion.service';
 import { PostComponent } from './post/post.component';
+import { LoginModule } from './login/login.module';
+import { LoginService } from './login/login.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
 
@@ -65,8 +52,7 @@ import { PostComponent } from './post/post.component';
         BrowserModule,
         BrowserAnimationsModule,
 
-        FormsModule,
-        ReactiveFormsModule,
+
         RouterModule.forRoot([
 
             {
@@ -94,20 +80,10 @@ import { PostComponent } from './post/post.component';
         ], { enableTracing: false }),
 
 
-        MatButtonModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatSelectModule,
-        MatStepperModule,
-        MatTabsModule,
-        MatTooltipModule,
-        MatToolbarModule,
-        MatTreeModule,
+        LoginModule,
+        SharedModule,
 
-        AngularSplitModule,
-        CodemirrorModule,
+        // AngularSplitModule,
         MonacoEditorModule.forRoot(),
         NgProgressModule,
         ToastrModule.forRoot({
@@ -148,6 +124,7 @@ import { PostComponent } from './post/post.component';
         },
 
         AuthService,
+        LoginService,
         PostService,
 
     ],

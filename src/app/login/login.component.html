@@ -1,0 +1,42 @@
+<div class="wrapper">
+
+    <form [formGroup]="formGroup">
+
+        <h1 mat-dialog-title>Login</h1>
+
+        <mat-dialog-content>
+
+            <mat-form-field>
+
+                <input matInput
+                       formControlName="email"
+                       placeholder="Email Address">
+
+            </mat-form-field>
+
+            <mat-form-field>
+
+                <input matInput
+                       formControlName="password"
+                       type="password"
+                       placeholder="Password">
+
+            </mat-form-field>
+
+            <a [routerLink]="['/login/forgot']">Forgot your username or password?</a>
+
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+
+            <button mat-button mat-dialog-close>Cancel</button>
+
+            <button mat-button>Login</button>
+
+        </mat-dialog-actions>
+
+    </form>
+
+</div>
+
+

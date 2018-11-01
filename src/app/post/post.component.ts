@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostService } from './post.service';
 import { MonacoEditorDirective } from 'ngx-monaco';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-post',
@@ -9,7 +10,21 @@ import { MonacoEditorDirective } from 'ngx-monaco';
 })
 export class PostComponent implements OnInit {
 
+    public formGroup = new FormGroup({
+
+        visibility: new FormControl('public')
+
+    });
+
     public currentIndex: number = 0;
+
+    // public currentFile: MonacoFile = {
+    //
+    //     uri: 'untitled.yaml',
+    //     language: 'yaml',
+    //     content: ''
+    //
+    // };
 
     public readonly monacoOptions = {
 
@@ -62,19 +77,35 @@ export class PostComponent implements OnInit {
 
     public ngOnInit() {
 
+        this.editor.open(this.postService.files[0]);
+
     }
 
     public post(): void {
 
     }
 
+    private isTabChanging: boolean;
+
     public selectedIndexChange(newIndex: number): void {
 
-        this.editor.file = this.postService.files[newIndex];
-        console.log('selected index change', newIndex);
-        console.log(this.postService.files);
+        this.isTabChanging = true;
+
+        this.editor.open(this.postService.files[newIndex]);
 
         this.currentIndex = newIndex;
+
+        this.isTabChanging = false;
+
+    }
+
+    public editorChange(e: any): void {
+
+        if (!this.isTabChanging) {
+
+            this.postService.files[this.currentIndex] = e;
+
+        }
 
     }
 

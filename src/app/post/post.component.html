@@ -1,46 +1,70 @@
-<div class="wrapper">
+<form [formGroup]="formGroup">
 
-    <h1 mat-dialog-title>Create Post</h1>
+    <div class="wrapper">
 
-    <mat-dialog-content>
+        <h1 mat-dialog-title>Create Post</h1>
 
-        <mat-tab-group #tabGroup
-                       disableRipple="true"
-                       (selectedIndexChange)="selectedIndexChange($event)"
-                       [dynamicHeight]="true">
+        <mat-dialog-content>
 
-            <mat-tab *ngFor="let tab of postService.tabs; let i = index">
+            <mat-tab-group #tabGroup
+                           disableRipple="true"
+                           (selectedIndexChange)="selectedIndexChange($event)"
+                           [dynamicHeight]="true">
 
-                <ng-template mat-tab-label>
+                <mat-tab *ngFor="let tab of postService.tabs; let i = index">
 
-                    <app-post-tab-label [label]="tab.label"
-                                        [autoFocus]="tab.autoFocus"
-                                        [index]="i"></app-post-tab-label>
+                    <ng-template mat-tab-label>
 
-                </ng-template>
+                        <app-post-tab-label [label]="tab.label"
+                                            [autoFocus]="tab.autoFocus"
+                                            [index]="i"></app-post-tab-label>
 
-            </mat-tab>
+                    </ng-template>
 
-        </mat-tab-group>
+                </mat-tab>
 
-        <monaco-editor theme="vs-dark"
-                       [file]="postService.files[currentIndex]"
-                       [options]="monacoOptions"></monaco-editor>
+            </mat-tab-group>
 
-    </mat-dialog-content>
+            <monaco-editor theme="vs-dark"
+                           (fileChange)="editorChange($event)"
+                           [options]="monacoOptions"></monaco-editor>
 
-    <mat-dialog-actions align="end">
+        </mat-dialog-content>
 
-        <button mat-button mat-dialog-close>Cancel</button>
+        <mat-dialog-actions>
 
-        <button mat-button
-                (click)="post()"
-                cdkFocusInitial>
+            <div class="left">
 
-            Post
+                <mat-form-field>
 
-        </button>
+                    <mat-select formControlName="visibility"
+                                placeholder="Visibility">
 
-    </mat-dialog-actions>
+                        <mat-option value="public" selected>Public</mat-option>
+                        <mat-option value="private">Private</mat-option>
 
-</div>
+                    </mat-select>
+
+                </mat-form-field>
+
+            </div>
+
+            <div class="right">
+
+                <button mat-button mat-dialog-close>Cancel</button>
+
+                <button mat-button
+                        (click)="post()"
+                        cdkFocusInitial>
+
+                    Post
+
+                </button>
+
+            </div>
+
+        </mat-dialog-actions>
+
+    </div>
+
+</form>
