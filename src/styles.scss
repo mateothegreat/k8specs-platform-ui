@@ -8,6 +8,7 @@ body {
     padding: 0;
     
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: #e1e1e1;
     
     background: linear-gradient(90deg, #29262a 0%, #131313 100%);
 }
@@ -28,6 +29,12 @@ form {
 //    background: linear-gradient(0deg, #223994 0%, #3a47d5 100%);
 //
 //}
+
+a {
+    
+    color: mediumpurple;
+    
+}
 
 ngx-monaco-editor, .monaco-editor, .editor {
     .editorContainer {

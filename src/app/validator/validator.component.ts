@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MonacoService } from '../_lib/monaco.service';
 import { ValidatorService } from './validator.service';
+import { NgxEditorModel } from 'ngx-monaco-editor';
 
 @Component({
     selector: 'app-validator',
@@ -25,6 +26,12 @@ spec:
     - name: http
       port: 8080
       targetPort: 8080`;
+
+    public model: NgxEditorModel = {
+        value: this.code,
+        language: 'yaml',
+        uri: 'input.yaml'
+    };
 
     public consoleOutputs: string = 'Waiting for input...';
 

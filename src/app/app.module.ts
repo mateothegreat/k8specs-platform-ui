@@ -9,8 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
 import { AutofocusDirective } from './_lib/AutofocusDirective';
 import { ToastrModule } from 'ngx-toastr';
-import { NgProgressInterceptor, NgProgressModule } from 'ngx-progressbar';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
@@ -26,6 +25,9 @@ import { SharedModule } from './shared/shared.module';
 import { ValidatorComponent } from './validator/validator.component';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MONACO_CONFIG } from './_lib/monaco.service';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
 
 @NgModule({
 
@@ -93,8 +95,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         SharedModule,
 
         // AngularSplitModule,
-        MonacoEditorModule.forRoot(),
+        MonacoEditorModule.forRoot(MONACO_CONFIG),
         NgProgressModule,
+        NgProgressHttpModule.forRoot(),
         ToastrModule.forRoot({
 
             timeOut: 5000,
@@ -118,13 +121,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     providers: [
 
-        {
 
-            provide: HTTP_INTERCEPTORS,
-            useClass: NgProgressInterceptor,
-            multi: true
-
-        },
         // {
         //
         //     provide: COMPLETION_PROVIDERS,

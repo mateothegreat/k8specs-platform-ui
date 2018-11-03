@@ -2,9 +2,34 @@
 
     <div class="top">
 
-        <ngx-monaco-editor class="editor"
-                           [(ngModel)]="code"
-                           [options]="{baseUrl: '/wtf',theme: 'vs-dark', language: 'yaml'}"></ngx-monaco-editor>
+        <div class="left">
+
+            <ngx-monaco-editor class="editor"
+                               [(ngModel)]="code"
+                               [options]="monacoOptions"
+                               [model]="model"></ngx-monaco-editor>
+
+        </div>
+
+        <div class="right">
+
+            <p>This validator performs real time queries against a Kubernetes Cluster deployed on GKE.</p>
+
+            <p>Current version: <b>1.11.2-gke.9</b></p>
+
+            <p>You can POST to https://validator.k8specs.com/validate with the body being your spec.</p>
+
+            <pre>curl -X POST -d @deployment.yaml
+https://validator.k8specs.com/validate</pre>
+
+            <p style="margin-top: 20px;">
+
+                Questions, concerns or ideas?<br>
+                Contact me at <a href="mailto:matthew@matthewdavis.io">matthew@matthewdavis.io</a>
+
+            </p>
+
+        </div>
 
     </div>
 
