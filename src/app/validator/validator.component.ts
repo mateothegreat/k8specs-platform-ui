@@ -41,7 +41,7 @@ spec:
     public consoleOutputs: string = 'Waiting for input';
 
     private intervalId: any;
-    private intervalCount: Number = 0;
+    private intervalCount: number = 0;
 
     public constructor(public monacoService: MonacoService,
                        public validatorPostService: ValidatorPostService,
@@ -52,17 +52,16 @@ spec:
 
     public ngOnInit() {
 
-        setTimeout(() => {
-
-
-            this.validatorPostService.open(<Post>{
-
-                name: 'input.yaml',
-                value: this.code
-
-            }, ValidatorPostComponent);
-            
-        }, 300);
+        // setTimeout(() => {
+        //
+        //     this.validatorPostService.open(<Post>{
+        //
+        //         name: 'input.yaml',
+        //         value: this.code
+        //
+        //     }, ValidatorPostComponent);
+        //
+        // }, 300);
 
         this.intervalId = setInterval(() => {
 

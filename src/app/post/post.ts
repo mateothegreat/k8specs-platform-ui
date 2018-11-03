@@ -7,4 +7,6 @@ export class Post {
 
     public user: any;
 
+    public tags: any[];
+
 }

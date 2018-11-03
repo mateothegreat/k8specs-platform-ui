@@ -6,8 +6,8 @@ import { DialogService } from '../../_lib/dialog.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent } from '@angular/material';
 import { Observable } from 'rxjs';
-import { distinct, map, startWith } from 'rxjs/operators';
 import { onlyUnique } from '../../_lib/Utils';
+import { PostsService } from '../../posts/posts.service';
 
 @Component({
     selector: 'app-validator-post',
@@ -32,11 +32,16 @@ export class ValidatorPostComponent {
 
         description: new FormControl(''),
 
-        visibility: new FormControl(true)
+        visibility: new FormControl({
+
+            value: true,
+            disabled: true
+
+        })
 
     });
 
-    public tags: string[] = ['nginx', 'nginx', 'redis'];
+    public tags: string[] = [];
 
     public tagsControl = new FormControl();
     public tagsFiltered: Observable<string[]>;
@@ -45,13 +50,21 @@ export class ValidatorPostComponent {
 
     public constructor(private validatorPostService: ValidatorPostService,
                        private toastrService: ToastrService,
+                       private postsService: PostsService,
                        private dialogService: DialogService) {
 
-        this.tagsFiltered = this.tagsControl.valueChanges.pipe(
-            startWith(null),
-            distinct(),
-            map((tag: string | null) => tag ? this._filter(tag) : this.tags.slice().filter(onlyUnique))
-        );
+        this.postsService.getTags().subscribe((results: any) => {
+
+            this.tagsFiltered = results.content.map((tag: any) => tag = tag.name);
+
+            console.log(this.tagsFiltered);
+        });
+
+        // this.tagsFiltered = this.tagsControl.valueChanges.pipe(
+        //     startWith(null),
+        //     distinct(),
+        //     map((tag: string | null) => tag ? this._filter(tag) : this.tags.slice().filter(onlyUnique))
+        // );
 
     }
 
