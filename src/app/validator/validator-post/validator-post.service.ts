@@ -22,7 +22,7 @@ export class ValidatorPostService {
 
         this.file = file;
 
-        this.dialogService.open(component, { width: '240px', height: '330px' });
+        this.dialogService.open(component, { width: '500px', height: '415px' });
 
     }
 
@@ -35,7 +35,7 @@ export class ValidatorPostService {
     public post(payload: any): Observable<any> {
 
         payload.value = this.file.value;
-        
+
         return this.httpClient.post(`${environment.API_BASE}/posts`, payload);
 
     }

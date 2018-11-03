@@ -3,18 +3,17 @@
     .wrapper {
         height: 100%;
         
-        padding: 20px;
         display: flex;
         flex-direction: column;
         .head {
             
-            flex: 20px;
+            flex: 0 1 20px;
             
         }
         .content {
             
             display: flex;
-            flex: 1;
+            //flex: 1;
             flex-wrap: wrap;
             
             overflow: auto;

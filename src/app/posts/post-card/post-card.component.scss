@@ -3,7 +3,7 @@
     mat-card {
         
         width: 300px;
-        height: 250px;
+        min-height: 250px;
         margin-right: 10px;
         margin-bottom: 10px;
         
@@ -49,10 +49,38 @@
             overflow: auto;
             margin-bottom: 0;
             
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            
             background: #1f1f1f;
             color: greenyellow;
             padding: 5px;
             font-size: 12px;
+            
+        }
+        
+        .tags {
+            
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px;
+            
+            .mat-standard-chip {
+                
+                cursor: pointer;
+                padding: 5px;
+                border-radius: 4px;
+                min-height: 20px;
+                font-size: 12px;
+                
+                &:hover {
+                    
+                    background: rebeccapurple;
+                    
+                }
+                
+            }
             
         }
         

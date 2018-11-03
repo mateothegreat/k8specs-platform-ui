@@ -15,8 +15,6 @@ import { LoginService } from '../login/login.service';
 })
 export class ValidatorComponent implements OnInit, OnDestroy {
 
-    // @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
-
     public code: any = `apiVersion: v1
 kind: Service
 metadata:
@@ -40,7 +38,10 @@ spec:
 
     public validated: boolean;
 
-    public consoleOutputs: string = 'Waiting for input...';
+    public consoleOutputs: string = 'Waiting for input';
+
+    private intervalId: any;
+    private intervalCount: Number = 0;
 
     public constructor(public monacoService: MonacoService,
                        public validatorPostService: ValidatorPostService,
@@ -51,18 +52,43 @@ spec:
 
     public ngOnInit() {
 
-        // setTimeout(() => {
-        //
-        //     this.validatorPostService.open<ValidatorPostComponent>(ValidatorPostComponent);
-        //
-        // }, 500);
-        // this.editor.open({
-        //
-        //     uri: 'input.yaml',
-        //     language: 'yaml',
-        //     content: 'asdf'
-        //
-        // });
+        setTimeout(() => {
+
+
+            this.validatorPostService.open(<Post>{
+
+                name: 'input.yaml',
+                value: this.code
+
+            }, ValidatorPostComponent);
+            
+        }, 300);
+
+        this.intervalId = setInterval(() => {
+
+            if (this.consoleOutputs.match(/^Waiting for input/)) {
+
+                if (this.intervalCount === 3) {
+
+                    this.intervalCount = 0;
+
+                    this.consoleOutputs = 'Waiting for input';
+
+                } else {
+
+                    this.intervalCount++;
+
+                    this.consoleOutputs = 'Waiting for input' + '.'.repeat(this.intervalCount);
+
+                }
+
+            } else {
+
+                clearInterval(this.intervalId);
+
+            }
+
+        }, 400);
 
     }
 

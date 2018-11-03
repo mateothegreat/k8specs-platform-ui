@@ -6,28 +6,102 @@
 
         <mat-dialog-content>
 
+            <table>
 
-            <mat-form-field>
+                <tr>
 
-                <input matInput
-                       formControlName="name"
-                       placeholder="Filename"
-                       autofocus
-                       required>
+                    <td>
 
-            </mat-form-field>
+                        <mat-form-field style="width: 440px;">
 
-            <mat-form-field>
+                            <input matInput
+                                   formControlName="name"
+                                   placeholder="Filename"
+                                   autofocus
+                                   required>
 
-                <textarea matInput
-                          placeholder="Description"
-                          formControlName="description"></textarea>
+                        </mat-form-field>
 
-            </mat-form-field>
+                    </td>
 
-            <mat-slide-toggle formControlName="visibility"
-                              disabled>Public
-            </mat-slide-toggle>
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        <mat-form-field style="width: 440px;">
+
+                            <textarea matInput
+                                      placeholder="Description"
+                                      formControlName="description"></textarea>
+
+                        </mat-form-field>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        <mat-form-field class="example-chip-list"
+                                        style="width: 440px;">
+
+                            <mat-chip-list #chipList>
+
+                                <mat-chip *ngFor="let tag of tags"
+                                          [selectable]="true"
+                                          [removable]="true"
+                                          (removed)="remove(tag)">
+
+                                    {{ tag }}
+
+                                    <mat-icon matChipRemove>cancel</mat-icon>
+
+                                </mat-chip>
+
+                                <input placeholder="Tags"
+                                       #fruitInput
+                                       [formControl]="tagsControl"
+                                       [matAutocomplete]="auto"
+                                       [matChipInputFor]="chipList"
+                                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                       [matChipInputAddOnBlur]="true"
+                                       (matChipInputTokenEnd)="add($event)">
+
+                            </mat-chip-list>
+
+                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+
+                                <mat-option *ngFor="let tag of tagsFiltered | async" [value]="tag">
+
+                                    {{ tag }}
+
+                                </mat-option>
+
+                            </mat-autocomplete>
+
+                        </mat-form-field>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        <mat-slide-toggle formControlName="visibility"
+                                          disabled>Public
+                        </mat-slide-toggle>
+
+                    </td>
+
+                </tr>
+
+            </table>
 
         </mat-dialog-content>
 

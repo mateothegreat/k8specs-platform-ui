@@ -24,6 +24,20 @@
 
     </mat-card-content>
 
+    <div class="tags">
+
+        <mat-chip-list>
+
+            <mat-chip *ngFor="let tag of post.tags">
+
+                {{ tag.name }}
+
+            </mat-chip>
+
+        </mat-chip-list>
+
+    </div>
+
     <mat-card-actions>
 
         <div class="left">
