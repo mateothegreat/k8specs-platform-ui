@@ -23,11 +23,68 @@ import { LoginModule } from './login/login.module';
 import { LoginService } from './login/login.service';
 import { SharedModule } from './shared/shared.module';
 import { ValidatorComponent } from './validator/validator.component';
-import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MONACO_CONFIG } from './_lib/monaco.service';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
+
+export function onLoadFn() {
+
+    monaco.languages.registerCompletionItemProvider('yaml', {
+
+        provideCompletionItems: () => {
+
+            return [
+
+                {
+
+                    label: 'simpleText',
+                    kind: monaco.languages.CompletionItemKind.Text
+
+                }, {
+
+                    label: 'apiVersion',
+                    kind: monaco.languages.CompletionItemKind.Keyword,
+                    insertText: { value: 'apiVersion: ${1:apps/v1}' }
+
+                }, {
+
+                    label: 'metadata',
+                    kind: monaco.languages.CompletionItemKind.Snippet,
+                    insertText: {
+                        value: [
+                            'metadata:',
+                            '\tname: ${1:thename}',
+                            '\t$0'
+                        ].join('\n')
+                    },
+                    documentation: 'object metadata'
+
+                }
+            ];
+
+        }
+
+    });
+
+}
+
+const monacoConfig: NgxMonacoEditorConfig = {
+
+    defaultOptions: {
+
+        theme: 'vs-dark',
+        language: 'yaml',
+        cursorBlinking: 'phase',
+        minimap: {
+            enabled: false
+        },
+        autoIndent: true
+
+    },
+
+    onMonacoLoad: onLoadFn
+};
 
 @NgModule({
 
@@ -95,7 +152,8 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
         SharedModule,
 
         // AngularSplitModule,
-        MonacoEditorModule.forRoot(MONACO_CONFIG),
+        MonacoEditorModule.forRoot(monacoConfig),
+
         NgProgressModule,
         NgProgressHttpModule.forRoot(),
         ToastrModule.forRoot({
