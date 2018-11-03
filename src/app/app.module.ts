@@ -30,6 +30,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ContactComponent } from './contact/contact.component';
 import { CustomRouteReuseStrategy } from './_lib/CustomRouteReuseStrategy';
+import { TeximateModule } from 'ngx-teximate';
 
 export function onLoadFn() {
 
@@ -158,7 +159,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
                 path: '',
                 pathMatch: 'full',
                 redirectTo: 'validator'
-                
+
             }
 
         ], { enableTracing: false }),
@@ -172,6 +173,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
         NgProgressModule,
         NgProgressHttpModule.forRoot(),
+        TeximateModule,
         ToastrModule.forRoot({
 
             timeOut: 5000,

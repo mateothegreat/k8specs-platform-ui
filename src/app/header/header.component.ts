@@ -4,6 +4,8 @@ import { PostService } from '../post/post.service';
 import { LoginService } from '../login/login.service';
 import { ValidatorService } from '../validator/validator.service';
 import { SidenavService } from '../sidenav/sidenav.service';
+import { TextAnimation } from 'ngx-teximate';
+import { bounceInRight } from 'ng-animate';
 
 @Component({
     selector: 'app-header',
@@ -11,6 +13,12 @@ import { SidenavService } from '../sidenav/sidenav.service';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+    public enterAnimation: TextAnimation = {
+        animation: bounceInRight,
+        delay: 50,
+        type: 'letter'
+    };
 
     public constructor(public authService: AuthService,
                        public postService: PostService,
