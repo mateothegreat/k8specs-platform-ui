@@ -21,12 +21,11 @@ export class ValidatorPostComponent {
 
     public formGroup = new FormGroup({
 
-        name: new FormControl('asdf', [
+        name: new FormControl('', [
 
             Validators.required,
             Validators.minLength(1),
             Validators.maxLength(32),
-            //Validators.pattern('^[a-zA-Z0-9._- ]+$')
 
         ]),
 
