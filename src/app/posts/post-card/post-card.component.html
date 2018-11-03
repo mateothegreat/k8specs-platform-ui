@@ -8,7 +8,11 @@
 
         </div>
 
-        <mat-card-title [routerLink]="['/posts/' + post.name]">{{ post.name }}</mat-card-title>
+        <mat-card-title [routerLink]="['/users/' + post.user.displayName + '/' + post.name]">
+
+            {{ post.name }}
+
+        </mat-card-title>
 
         <mat-card-subtitle [routerLink]="['/users/' + post.user.displayName]">
 

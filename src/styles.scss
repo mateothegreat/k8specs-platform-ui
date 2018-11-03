@@ -2,6 +2,7 @@
 //@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import '~@angular/material/prebuilt-themes/purple-green.css';
 @import "~ngx-toastr/toastr.css";
+@import '~prismjs/themes/prism-twilight.css';
 
 body {
     
@@ -82,6 +83,42 @@ ngx-monaco-editor, .monaco-editor, .editor, .editor-container {
     height: 100% !important;
     width: 100%;
     display: block;
+    
+}
+
+prism {
+    
+    pre {
+        
+        border-radius: 2px !important;
+        border: 0 !important;
+        margin: 0 !important;
+        
+    }
+    
+}
+
+.tags {
+    
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    
+    .mat-standard-chip {
+        
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 4px;
+        min-height: 20px;
+        font-size: 12px;
+        
+        &:hover {
+            
+            background: rebeccapurple;
+            
+        }
+        
+    }
     
 }
 

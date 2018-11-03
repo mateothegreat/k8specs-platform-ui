@@ -30,7 +30,7 @@ export class UsersProfileComponent {
 
                 });
 
-                this.postsService.getPostsByDisplayName(params.displayName).subscribe((results: any) => {
+                this.postsService.getPostsByUserDisplayName(params.displayName).subscribe((results: any) => {
 
                     console.log(results);
 

@@ -60,30 +60,6 @@
             
         }
         
-        .tags {
-            
-            display: flex;
-            justify-content: flex-end;
-            padding: 5px;
-            
-            .mat-standard-chip {
-                
-                cursor: pointer;
-                padding: 5px;
-                border-radius: 4px;
-                min-height: 20px;
-                font-size: 12px;
-                
-                &:hover {
-                    
-                    background: rebeccapurple;
-                    
-                }
-                
-            }
-            
-        }
-        
         mat-card-actions {
             
             display: flex;

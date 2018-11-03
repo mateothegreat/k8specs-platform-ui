@@ -1,0 +1,40 @@
+:host {
+    
+    .wrapper {
+        
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        margin-bottom: 10px;
+        
+        .breadcrumb {
+            
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            
+            mat-icon {
+                
+                font-size: 14px;
+                height: 14px;
+                width: 14px;
+                
+            }
+            
+            &:hover {
+                
+                color: mediumpurple;
+                
+                mat-icon {
+                    
+                    color: mediumpurple;
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}

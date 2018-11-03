@@ -40,6 +40,16 @@ import { GravatarModule } from 'ngx-gravatar';
 import { ClipboardModule } from 'ngx-clipboard';
 import { UsersComponent } from './users/users.component';
 import { UsersProfileComponent } from './users/users-profile/users-profile.component';
+import { PostViewComponent } from './posts/post-view/post-view.component';
+import { UsersPostComponent } from './users/users-post/users-post.component';
+import { PrismModule } from '@sgbj/angular-prism';
+
+import 'prismjs/prism';
+import 'prismjs/components/prism-yaml';
+import { FileViewerModule } from './file-viewer/file-viewer.module';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+// import 'prismjs/components/prism-scss';
+// import 'prismjs/components/prism-markup';
 
 export function onLoadFn() {
 
@@ -125,6 +135,9 @@ const monacoConfig: NgxMonacoEditorConfig = {
         PostCardComponent,
         UsersComponent,
         UsersProfileComponent,
+        PostViewComponent,
+        UsersPostComponent,
+        BreadcrumbsComponent,
 
     ],
 
@@ -170,6 +183,11 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
             }, {
 
+                path: 'users/:displayName/:postName',
+                component: UsersPostComponent
+
+            }, {
+
                 path: 'users/:displayName',
                 component: UsersProfileComponent
 
@@ -184,16 +202,17 @@ const monacoConfig: NgxMonacoEditorConfig = {
         ], { enableTracing: false }),
 
 
+        FileViewerModule,
         LoginModule,
         SharedModule,
 
         ClipboardModule,
         GravatarModule,
-
         // AngularSplitModule,
         MonacoEditorModule.forRoot(monacoConfig),
         NgProgressModule,
         NgProgressHttpModule.forRoot(),
+        PrismModule,
         TeximateModule,
         ToastrModule.forRoot({
 

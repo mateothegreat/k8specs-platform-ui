@@ -1,0 +1,66 @@
+:host {
+    
+    .wrapper {
+        
+        .row {
+            
+            background: #151515;
+            
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            
+            .left {
+                
+                display: flex;
+                flex: 0 1 300px;
+                align-items: center;
+                
+            }
+            
+            .right {
+                
+                display: flex;
+                justify-content: flex-end;
+                flex: 1;
+                
+            }
+            
+        }
+        
+        .name {
+            
+            font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+            color: greenyellow;
+            
+        }
+        
+        .tags {
+        
+        }
+        
+        .left {
+            
+            div {
+                
+                padding: 5px;
+                
+            }
+            
+        }
+        
+        .horizontal-divider {
+            
+            border-left: 1px solid #333;
+            
+        }
+        
+        .date {
+            
+            color: #c0c0c0;
+            
+        }
+        
+    }
+    
+}
