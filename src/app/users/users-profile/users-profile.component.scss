@@ -1,0 +1,31 @@
+:host {
+    
+    .wrapper {
+        
+        display: flex;
+        padding: 10px;
+        
+        .left {
+            
+            flex: 1;
+            
+            .content {
+                
+                display: flex;
+                
+            }
+            
+        }
+        
+        .right {
+            
+            flex: 0 1 400px;
+            padding: 0 10px;
+            
+            border-left: 1px solid #3f3f3f;
+            
+        }
+        
+    }
+    
+}

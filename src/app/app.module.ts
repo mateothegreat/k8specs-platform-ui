@@ -38,6 +38,8 @@ import { PostsComponent } from './posts/posts.component';
 import { PostCardComponent } from './posts/post-card/post-card.component';
 import { GravatarModule } from 'ngx-gravatar';
 import { ClipboardModule } from 'ngx-clipboard';
+import { UsersComponent } from './users/users.component';
+import { UsersProfileComponent } from './users/users-profile/users-profile.component';
 
 export function onLoadFn() {
 
@@ -121,6 +123,8 @@ const monacoConfig: NgxMonacoEditorConfig = {
         ValidatorPostComponent,
         PostsComponent,
         PostCardComponent,
+        UsersComponent,
+        UsersProfileComponent,
 
     ],
 
@@ -163,6 +167,11 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
                 path: 'oauth/callback',
                 component: CallbackComponent
+
+            }, {
+
+                path: 'users/:displayName',
+                component: UsersProfileComponent
 
             }, {
 

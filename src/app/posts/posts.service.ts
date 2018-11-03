@@ -19,4 +19,10 @@ export class PostsService {
 
     }
 
+    public getPostsByDisplayName(displayName: string): Observable<any> {
+
+        return this.httpClient.get(`${environment.API_BASE}/posts/user/${displayName}`);
+
+    }
+
 }

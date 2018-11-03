@@ -20,6 +20,17 @@
                 
             }
             
+            mat-card-title, mat-card-subtitle {
+                
+                &:hover {
+                    
+                    cursor: pointer;
+                    color: mediumpurple;
+                    
+                }
+                
+            }
+            
             mat-card-title {
                 
                 font-size: 15px;
