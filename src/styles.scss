@@ -69,6 +69,13 @@ h1 {
 a {
     
     color: mediumpurple;
+    text-decoration: none;
+    
+    &:hover {
+        
+        color: dodgerblue;
+        
+    }
     
 }
 
