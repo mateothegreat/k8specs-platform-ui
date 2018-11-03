@@ -3,6 +3,7 @@ import { AuthService } from '../_lib/auth.service';
 import { PostService } from '../post/post.service';
 import { LoginService } from '../login/login.service';
 import { ValidatorService } from '../validator/validator.service';
+import { SidenavService } from '../sidenav/sidenav.service';
 
 @Component({
     selector: 'app-header',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
     public constructor(public authService: AuthService,
                        public postService: PostService,
                        public loginService: LoginService,
-                       public validatorService: ValidatorService) {
+                       public validatorService: ValidatorService,
+                       public sidenavService: SidenavService) {
 
         authService.handleAuthentication();
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MonacoService } from '../_lib/monaco.service';
 import { ValidatorService } from './validator.service';
 import { NgxEditorModel } from 'ngx-monaco-editor';
@@ -8,7 +8,7 @@ import { NgxEditorModel } from 'ngx-monaco-editor';
     templateUrl: './validator.component.html',
     styleUrls: ['./validator.component.scss']
 })
-export class ValidatorComponent implements OnInit {
+export class ValidatorComponent implements OnInit, OnDestroy {
 
     // @ViewChild(MonacoEditorDirective) editor: MonacoEditorDirective;
 
@@ -48,6 +48,12 @@ spec:
         //     content: 'asdf'
         //
         // });
+
+    }
+
+    public ngOnDestroy(): void {
+
+        this.model = null;
 
     }
 

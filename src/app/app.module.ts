@@ -10,7 +10,7 @@ import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
 import { AutofocusDirective } from './_lib/AutofocusDirective';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,6 +27,9 @@ import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { ContactComponent } from './contact/contact.component';
+import { CustomRouteReuseStrategy } from './_lib/CustomRouteReuseStrategy';
 
 export function onLoadFn() {
 
@@ -105,6 +108,8 @@ const monacoConfig: NgxMonacoEditorConfig = {
         CallbackComponent,
         FooterComponent,
         ValidatorComponent,
+        SidenavComponent,
+        ContactComponent,
 
     ],
 
@@ -122,6 +127,11 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
                 path: 'home/:tab',
                 component: HomeComponent
+
+            }, {
+
+                path: 'contact',
+                component: ContactComponent
 
             }, {
 
@@ -143,6 +153,12 @@ const monacoConfig: NgxMonacoEditorConfig = {
                 path: 'oauth/callback',
                 component: CallbackComponent
 
+            }, {
+
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'validator'
+                
             }
 
         ], { enableTracing: false }),
@@ -187,6 +203,8 @@ const monacoConfig: NgxMonacoEditorConfig = {
         //     multi: true
         //
         // },
+
+        { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
 
         AuthService,
         LoginService,

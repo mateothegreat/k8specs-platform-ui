@@ -1,55 +1,24 @@
 <app-header></app-header>
 
-<div class="content">
+<mat-sidenav-container class="example-container">
 
-    <router-outlet></router-outlet>
+    <mat-sidenav mode="over" [opened]="sidenavService.sidenavOpened">
 
-</div>
-<!--<div class="editor">-->
+        <app-sidenav></app-sidenav>
 
-<!--<app-controls></app-controls>-->
+    </mat-sidenav>
 
-<!--<div class="split-example">-->
+    <mat-sidenav-content>
 
-<!--<split direction="horizontal">-->
+        <div class="content">
 
-<!--<split-area size="15">-->
+            <router-outlet></router-outlet>
 
-<!--<app-editor></app-editor>-->
+        </div>
 
-<!--</split-area>-->
+    </mat-sidenav-content>
 
-<!--<split-area size="70">-->
-
-<!--<mat-tab-group>-->
-
-<!--<mat-tab label="deployment.yaml">-->
-
-<!--<app-generator></app-generator>-->
-
-<!--</mat-tab>-->
-
-<!--<mat-tab label="service.yaml">-->
-
-<!--<app-generator></app-generator>-->
-
-<!--</mat-tab>-->
-
-<!--</mat-tab-group>-->
-
-<!--</split-area>-->
-
-<!--<split-area size="15">-->
-
-<!--<app-editor></app-editor>-->
-
-<!--</split-area>-->
-
-<!--</split>-->
-
-<!--</div>-->
-
-<!--</div>-->
+</mat-sidenav-container>
 
 <app-footer></app-footer>
 
