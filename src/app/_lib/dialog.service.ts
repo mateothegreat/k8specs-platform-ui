@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { ComponentType } from '@angular/cdk/typings/portal';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DialogService {
+
+    private matDialogRef: MatDialogRef<any>;
 
     public constructor(private matDialog: MatDialog) {
 
@@ -19,13 +21,13 @@ export class DialogService {
         _config.width = config && config.width || '500px';
         _config.height = config && config.height || '500px';
 
-        this.matDialog.open(componentRef, _config);
+        this.matDialogRef = this.matDialog.open(componentRef, _config);
 
-        // setTimeout(() => {
-        //
-        //     this.matDialog.open(componentRef, config);
-        //
-        // }, 1000);
+    }
+
+    public close(): void {
+
+        this.matDialogRef.close();
 
     }
 

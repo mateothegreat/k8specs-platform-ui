@@ -38,11 +38,19 @@
 
             </button>
 
-            <button mat-raised-button
-                    disabled
-                    (click)="loginService.open()">
+            <button *ngIf="!loginService.isLoggedIn()"
+                    mat-raised-button
+                    (click)="loginOpen()">
 
                 Login
+
+            </button>
+
+            <button *ngIf="loginService.isLoggedIn()"
+                    mat-raised-button
+                    (click)="loginService.logout()">
+
+                Logout
 
             </button>
 

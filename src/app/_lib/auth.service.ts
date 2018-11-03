@@ -33,8 +33,8 @@ export class AuthService {
 
         this.auth0.parseHash((err, authResult) => {
 
-            console.log(err);
-            console.log(authResult);
+            // console.log(err);
+            // console.log(authResult);
 
             if (authResult && authResult.accessToken && authResult.idToken) {
 

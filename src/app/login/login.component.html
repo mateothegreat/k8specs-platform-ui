@@ -31,7 +31,13 @@
 
             <button mat-button mat-dialog-close>Cancel</button>
 
-            <button mat-button>Login</button>
+            <button mat-button
+                    [disabled]="!formGroup.valid"
+                    (click)="login()">
+
+                Login
+
+            </button>
 
         </mat-dialog-actions>
 

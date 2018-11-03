@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
 import { AutofocusDirective } from './_lib/AutofocusDirective';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PostTabLabelComponent } from './post/post-tab-label/post-tab-label.component';
@@ -31,6 +31,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ContactComponent } from './contact/contact.component';
 import { CustomRouteReuseStrategy } from './_lib/CustomRouteReuseStrategy';
 import { TeximateModule } from 'ngx-teximate';
+import { JwtInterceptor } from './_lib/JwtInterceptor';
+import { HttpErrorInterceptor } from './_lib/HttpErrorInterceptor';
 
 export function onLoadFn() {
 
@@ -207,7 +209,19 @@ const monacoConfig: NgxMonacoEditorConfig = {
         // },
 
         { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
+        {
 
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true,
+
+        }, {
+
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInterceptor,
+            multi: true,
+
+        },
         AuthService,
         LoginService,
         PostService,

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { DialogService } from '../_lib/dialog.service';
-import { PostComponent } from './post.component';
 
 export class Tab {
 
@@ -37,12 +36,12 @@ export class PostService {
 
     public open(): void {
 
-        this.dialogService.open<PostComponent>(PostComponent, {
-
-            width: '90%',
-            height: '90%'
-
-        });
+        // this.dialogService.open<PostComponent>(PostComponent, {
+        //
+        //     width: '90%',
+        //     height: '90%'
+        //
+        // });
 
     }
 
