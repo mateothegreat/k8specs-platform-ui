@@ -27,6 +27,7 @@
                     <td colspan="2">
 
                         <img ngxGravatar
+                             *ngIf="profile?.email"
                              [email]="profile?.email"
                              [round]="false"
                              size="100">

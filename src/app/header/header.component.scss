@@ -8,6 +8,29 @@
             flex-direction: row;
             align-items: center;
             
+            a {
+                
+                color: #e1e1e1;
+                
+                &:hover {
+                    
+                    color: mediumpurple;
+                    
+                }
+                
+            }
+            
+        }
+        
+        .text {
+            
+            margin-left: 15px;
+            teximate {
+                
+                font-size: 15px;
+                
+            }
+            
         }
         
         mat-toolbar {

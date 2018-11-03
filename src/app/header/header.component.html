@@ -5,13 +5,28 @@
         <div class="left">
 
             <button mat-icon-button
-                    (click)="sidenavService.toggle()">
+                    (click)="sidenavService.toggle()"
+                    style="margin-right: 15px; color: #c0c0c0">
 
                 <mat-icon>menu</mat-icon>
 
             </button>
 
-            <teximate [text]="'Kubernetes Spec Tools v0.0.1'" [enter]="enterAnimation"></teximate>
+            <a [routerLink]="['/']">
+
+                <img src="../../assets/logo-inline-green-dark.png" style="height: 60px; width: 65px;">
+
+            </a>
+
+            <div class="text">
+
+                <a [routerLink]="['/']">
+
+                    <teximate [text]="'k8specs galaxy'" [enter]="enterAnimation"></teximate>
+
+                </a>
+
+            </div>
 
         </div>
 
@@ -19,7 +34,8 @@
 
             <button mat-raised-button
                     color="warn"
-                    [routerLink]="['/validator']">
+                    [routerLink]="['/validator']"
+                    style="background: rebeccapurple">
 
                 <mat-icon>spellcheck</mat-icon>
 
