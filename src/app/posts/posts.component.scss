@@ -1,0 +1,32 @@
+:host {
+    
+    .wrapper {
+        height: 100%;
+        
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        .head {
+            
+            flex: 20px;
+            
+        }
+        .content {
+            
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+            
+            overflow: auto;
+            
+            table {
+                
+                width: 100%;
+                
+            }
+            
+        }
+        
+    }
+    
+}

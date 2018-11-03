@@ -33,6 +33,11 @@ import { CustomRouteReuseStrategy } from './_lib/CustomRouteReuseStrategy';
 import { TeximateModule } from 'ngx-teximate';
 import { JwtInterceptor } from './_lib/JwtInterceptor';
 import { HttpErrorInterceptor } from './_lib/HttpErrorInterceptor';
+import { ValidatorPostComponent } from './validator/validator-post/validator-post.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostCardComponent } from './posts/post-card/post-card.component';
+import { GravatarModule } from 'ngx-gravatar';
+import { ClipboardModule } from 'ngx-clipboard';
 
 export function onLoadFn() {
 
@@ -113,6 +118,9 @@ const monacoConfig: NgxMonacoEditorConfig = {
         ValidatorComponent,
         SidenavComponent,
         ContactComponent,
+        ValidatorPostComponent,
+        PostsComponent,
+        PostCardComponent,
 
     ],
 
@@ -128,7 +136,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
             {
 
-                path: 'home/:tab',
+                path: 'home',
                 component: HomeComponent
 
             }, {
@@ -160,7 +168,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
                 path: '',
                 pathMatch: 'full',
-                redirectTo: 'validator'
+                redirectTo: 'home'
 
             }
 
@@ -170,9 +178,11 @@ const monacoConfig: NgxMonacoEditorConfig = {
         LoginModule,
         SharedModule,
 
+        ClipboardModule,
+        GravatarModule,
+
         // AngularSplitModule,
         MonacoEditorModule.forRoot(monacoConfig),
-
         NgProgressModule,
         NgProgressHttpModule.forRoot(),
         TeximateModule,
@@ -194,6 +204,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
         FormWizardComponent,
         PostComponent,
         ValidatorComponent,
+        ValidatorPostComponent,
 
     ],
 

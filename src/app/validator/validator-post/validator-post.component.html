@@ -1,0 +1,52 @@
+<div class="wrapper">
+
+    <form [formGroup]="formGroup">
+
+        <h1 mat-dialog-title>Save to Post</h1>
+
+        <mat-dialog-content>
+
+
+            <mat-form-field>
+
+                <input matInput
+                       formControlName="name"
+                       placeholder="Filename"
+                       autofocus
+                       required>
+
+            </mat-form-field>
+
+            <mat-form-field>
+
+                <textarea matInput
+                          placeholder="Description"
+                          formControlName="description"></textarea>
+
+            </mat-form-field>
+
+            <mat-slide-toggle formControlName="visibility"
+                              disabled>Public
+            </mat-slide-toggle>
+
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+
+            <button mat-button mat-dialog-close>Cancel</button>
+
+            <button mat-button
+                    [disabled]="!formGroup.valid"
+                    (click)="post()">
+
+                Create Post
+
+            </button>
+
+        </mat-dialog-actions>
+
+    </form>
+
+</div>
+
+

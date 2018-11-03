@@ -9,6 +9,21 @@
                                [options]="{}"
                                [model]="model"></ngx-monaco-editor>
 
+
+            <!--<div class="buttons">-->
+
+            <!--<button mat-raised-button-->
+            <!--color="primary"-->
+            <!--(click)="validate()">-->
+
+            <!--<mat-icon>spellcheck</mat-icon>-->
+
+            <!--Validate-->
+
+            <!--</button>-->
+
+            <!--</div>-->
+
         </div>
 
         <div class="right">
@@ -45,12 +60,23 @@ https://validator.k8specs.com/validate</pre>
             <div class="right">
 
                 <button mat-raised-button
-                        color="primary"
+                        color="warn"
                         (click)="validate()">
 
                     <mat-icon>spellcheck</mat-icon>
 
                     Validate
+
+                </button>
+
+                <button mat-raised-button
+                        color="primary"
+                        [disabled]="!(validated && loginService.isLoggedIn())"
+                        (click)="buttonPostClick()">
+
+                    <mat-icon>add</mat-icon>
+
+                    Post..
 
                 </button>
 

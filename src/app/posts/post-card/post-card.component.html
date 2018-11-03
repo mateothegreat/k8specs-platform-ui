@@ -1,0 +1,63 @@
+<mat-card>
+
+    <mat-card-header>
+
+        <div mat-card-avatar>
+
+            <img ngxGravatar [email]="post.user.email" size="40">
+
+        </div>
+
+        <mat-card-title>{{ post.name }}</mat-card-title>
+        <mat-card-subtitle>{{ post.user.displayName }}</mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <pre>{{ post.value }}</pre>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+
+        <div class="left">
+
+
+            <div class="validated">
+
+                <mat-icon>check</mat-icon>
+                Validated
+
+            </div>
+
+        </div>
+
+        <div class="right">
+
+            <button mat-button
+                    disabled>
+
+                Like
+
+            </button>
+
+            <button mat-button
+                    disabled>
+
+                Share
+
+            </button>
+
+            <button mat-button ngxClipboard
+                    [cbContent]="post.value"
+                    (cbOnSuccess)="copied()">
+
+                Copy
+
+            </button>
+
+        </div>
+    </mat-card-actions>
+
+</mat-card>

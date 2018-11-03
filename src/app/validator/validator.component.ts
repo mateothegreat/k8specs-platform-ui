@@ -2,6 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MonacoService } from '../_lib/monaco.service';
 import { ValidatorService } from './validator.service';
 import { NgxEditorModel } from 'ngx-monaco-editor';
+import { ValidatorPostService } from './validator-post/validator-post.service';
+import { ValidatorPostComponent } from './validator-post/validator-post.component';
+import { Post } from '../post/post';
+import { ToastrService } from 'ngx-toastr';
+import { LoginService } from '../login/login.service';
 
 @Component({
     selector: 'app-validator',
@@ -33,14 +38,24 @@ spec:
         uri: 'input.yaml'
     };
 
+    public validated: boolean;
+
     public consoleOutputs: string = 'Waiting for input...';
 
     public constructor(public monacoService: MonacoService,
-                       private validatorService: ValidatorService) {
+                       public validatorPostService: ValidatorPostService,
+                       public loginService: LoginService,
+                       private validatorService: ValidatorService,
+                       private toastrService: ToastrService) {
     }
 
     public ngOnInit() {
 
+        // setTimeout(() => {
+        //
+        //     this.validatorPostService.open<ValidatorPostComponent>(ValidatorPostComponent);
+        //
+        // }, 500);
         // this.editor.open({
         //
         //     uri: 'input.yaml',
@@ -57,11 +72,36 @@ spec:
 
     }
 
+    public buttonPostClick(): void {
+
+        this.validatorPostService.open(<Post>{
+
+            name: 'input.yaml',
+            value: this.code
+
+        }, ValidatorPostComponent);
+
+    }
+
     public validate(): void {
 
         this.validatorService.validate(this.code).subscribe((results: any) => {
 
             console.log(results);
+
+            if (results.valid) {
+
+                this.toastrService.success('Validation passed!');
+
+                this.validated = true;
+
+            } else {
+
+                this.toastrService.error('Validation failed!');
+
+                this.validated = false;
+
+            }
 
             this.consoleOutputs = results.response;
 

@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
     MatButtonModule,
+    MatCardModule,
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatSelectModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     MatStepperModule,
+    MatTableModule,
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule
@@ -42,13 +45,16 @@ import {
         ReactiveFormsModule,
 
         MatButtonModule,
+        MatCardModule,
         MatDialogModule,
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
         MatSelectModule,
         MatSidenavModule,
+        MatSlideToggleModule,
         MatStepperModule,
+        MatTableModule,
         MatTabsModule,
         MatTooltipModule,
         MatToolbarModule,

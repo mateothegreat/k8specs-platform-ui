@@ -12,11 +12,18 @@ body {
     color: #e1e1e1;
     
     background: linear-gradient(90deg, #29262a 0%, #131313 100%);
+    
 }
 
 form {
     
     height: 100%;
+}
+
+h1 {
+    
+    font-size: 16px;
+    
 }
 
 //mat-tab-group, .mat-tab-body, .mat-tab-body-content, .mat-tab-body-wrapper {
@@ -37,10 +44,8 @@ a {
     
 }
 
-ngx-monaco-editor, .monaco-editor, .editor {
-    .editorContainer {
-        height: calc(100vh - 100px) !important;
-    }
+ngx-monaco-editor, .monaco-editor, .editor, .editor-container {
+    
     height: 100% !important;
     width: 100%;
     display: block;

@@ -35,6 +35,12 @@ import { SharedModule } from '../shared/shared.module';
 
         LoginService
 
+    ],
+
+    entryComponents: [
+
+        LoginComponent,
+
     ]
 
 })

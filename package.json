@@ -33,6 +33,8 @@
         "core-js": "^2.5.4",
         "monaco-editor": "^0.14.3",
         "ng-animate": "^0.3.4",
+        "ngx-clipboard": "^11.1.9",
+        "ngx-gravatar": "^7.0.0",
         "ngx-monaco-editor": "^5.0.0",
         "ngx-teximate": "^0.3.0",
         "ngx-toastr": "^9.1.1",
