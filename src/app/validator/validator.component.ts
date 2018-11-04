@@ -52,16 +52,16 @@ spec:
 
     public ngOnInit() {
 
-        // setTimeout(() => {
-        //
-        //     this.validatorPostService.open(<Post>{
-        //
-        //         name: 'input.yaml',
-        //         value: this.code
-        //
-        //     }, ValidatorPostComponent);
-        //
-        // }, 300);
+        setTimeout(() => {
+
+            this.validatorPostService.open(<Post>{
+
+                name: 'input.yaml',
+                value: this.code
+
+            }, ValidatorPostComponent);
+
+        }, 300);
 
         this.intervalId = setInterval(() => {
 

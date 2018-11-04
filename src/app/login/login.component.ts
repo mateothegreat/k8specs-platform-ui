@@ -12,7 +12,7 @@ export class LoginComponent {
 
     public formGroup = new FormGroup({
 
-        email: new FormControl('matthew@matthewdavis.io', [
+        email: new FormControl('', [
 
             Validators.required,
             Validators.minLength(6),
@@ -21,7 +21,7 @@ export class LoginComponent {
 
         ]),
 
-        password: new FormControl('asdfasdf', [
+        password: new FormControl('', [
 
             Validators.required,
             Validators.minLength(8),

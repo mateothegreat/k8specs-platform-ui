@@ -44,6 +44,7 @@ export class ValidatorPostComponent {
 
     public tagsControl = new FormControl();
     public tagsFiltered: Observable<string[]>;
+    public tagsAll: Observable<string[]>;
     public separatorKeysCodes: number[] = [ENTER, COMMA];
 
 
@@ -54,47 +55,49 @@ export class ValidatorPostComponent {
 
         this.postsService.getTags().subscribe((results: any) => {
 
-            this.tagsFiltered = results.content.map((tag: any) => tag = tag.name);
-
-            console.log(this.tagsFiltered);
+            this.tagsAll = results.content.map((tag: any) => tag = tag.name);
+            this.tagsFiltered = this.tagsAll;
+            // this.tagsFiltered = results.content.map((tag: any) => tag = tag.name);
+            // this.tagsFiltered = this.tagsControl.valueChanges.pipe(
+            //     startWith(null),
+            //     map((tag: string | null) => tag ? this._filter(tag) : this.tags.slice())
+            // );
         });
 
-        // this.tagsFiltered = this.tagsControl.valueChanges.pipe(
-        //     startWith(null),
-        //     distinct(),
-        //     map((tag: string | null) => tag ? this._filter(tag) : this.tags.slice().filter(onlyUnique))
-        // );
+        this.tagsControl.valueChanges.subscribe((d: any) => {
+
+            this.tagsFiltered = this.tagsAll.filter((tag: string[]) => tag.indexOf(d) === 0);
+
+        });
+
 
     }
 
     public add(event: MatChipInputEvent): void {
 
-        if (!this.matAutocomplete.isOpen) {
 
-            const input = event.input;
-            const value = event.value;
+        const input = event.input;
+        const value = event.value;
 
-            // Add our tag
-            if ((value || '').trim()) {
+        // Add our tag
+        if ((value || '').trim()) {
 
-                if (this.tags.indexOf(value) === -1) {
+            if (this.tags.indexOf(value) === -1) {
 
-                    this.tags.push(value.trim());
-
-                }
+                this.tags.push(value.trim());
 
             }
-
-            // Reset the input value
-            if (input) {
-
-                input.value = '';
-
-            }
-
-            this.tagsControl.setValue(null);
 
         }
+
+        // Reset the input value
+        if (input) {
+
+            input.value = '';
+
+        }
+
+        this.tagsControl.setValue(null);
 
     }
 

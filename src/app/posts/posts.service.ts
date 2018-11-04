@@ -33,7 +33,7 @@ export class PostsService {
 
     public getTags(): Observable<any> {
 
-        return this.httpClient.get(`${environment.API_BASE}/tags/search`);
+        return this.httpClient.get(`${environment.API_BASE}/tags/search?sort=name&&direction=ASC`);
 
     }
 

@@ -73,7 +73,9 @@
 
                             </mat-chip-list>
 
-                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-autocomplete #auto="matAutocomplete"
+
+                                              (optionSelected)="selected($event)">
 
                                 <mat-option *ngFor="let tag of tagsFiltered" [value]="tag">
 
