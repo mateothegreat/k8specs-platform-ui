@@ -48,6 +48,7 @@ import 'prismjs/prism';
 import 'prismjs/components/prism-yaml';
 import { FileViewerModule } from './file-viewer/file-viewer.module';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { DisqusModule } from 'ngx-disqus';
 // import 'prismjs/components/prism-scss';
 // import 'prismjs/components/prism-markup';
 
@@ -201,7 +202,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
         ], { enableTracing: false }),
 
-
+        DisqusModule.forRoot('k8specs'),
         FileViewerModule,
         LoginModule,
         SharedModule,
