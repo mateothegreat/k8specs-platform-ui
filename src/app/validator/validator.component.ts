@@ -7,6 +7,7 @@ import { ValidatorPostComponent } from './validator-post/validator-post.componen
 import { Post } from '../post/post';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../login/login.service';
+import { FileView } from '../file-viewer/file-view';
 
 @Component({
     selector: 'app-validator',
@@ -38,6 +39,22 @@ spec:
 
     public validated: boolean;
 
+    public tabs: FileView[] = [
+
+        new FileView({
+
+            name: 'deployment.yaml'
+
+        }),
+
+        new FileView({
+
+            name: 'service.yaml'
+
+        })
+
+    ];
+
     public consoleOutputs: string = 'Waiting for input';
 
     private intervalId: any;
@@ -52,16 +69,16 @@ spec:
 
     public ngOnInit() {
 
-        setTimeout(() => {
-
-            this.validatorPostService.open(<Post>{
-
-                name: 'input.yaml',
-                value: this.code
-
-            }, ValidatorPostComponent);
-
-        }, 300);
+        // setTimeout(() => {
+        //
+        //     this.validatorPostService.open(<Post>{
+        //
+        //         name: 'input.yaml',
+        //         value: this.code
+        //
+        //     }, ValidatorPostComponent);
+        //
+        // }, 300);
 
         this.intervalId = setInterval(() => {
 

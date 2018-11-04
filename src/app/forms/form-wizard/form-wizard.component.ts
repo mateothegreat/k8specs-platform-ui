@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Deployment } from '../../_lib/types/v1/Deployment';
-import { GeneratorService } from '../../generator/generator.service';
 
 @Component({
     selector: 'app-form-wizard',
@@ -39,8 +38,7 @@ export class FormWizardComponent implements OnInit {
 
     });
 
-    public constructor(private toastr: ToastrService,
-                       private generatorService: GeneratorService) {
+    public constructor(private toastr: ToastrService) {
 
     }
 
@@ -59,7 +57,7 @@ export class FormWizardComponent implements OnInit {
 
         console.log(deployment.toJSON());
 
-        this.generatorService.data = deployment.toJSON();
+        // this.generatorService.data = deployment.toJSON();
 
         this.toastr.success(`Your Deployment specs for "${this.formGroup.controls.name.value}" has been generated!`);
 

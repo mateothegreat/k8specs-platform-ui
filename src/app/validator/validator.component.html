@@ -4,25 +4,29 @@
 
         <div class="left">
 
+            <!--<div class="tabs">-->
+
+            <!--<div class="tab" *ngFor="let tab of tabs">-->
+
+            <!--<mat-form-field style="width: 145px">-->
+
+            <!--<input matInput-->
+            <!--style="text-align: left"-->
+            <!--[(ngModel)]="tab.name"-->
+            <!--placeholder="Filename">-->
+
+            <!--</mat-form-field>-->
+
+            <!--<mat-icon style="cursor: pointer;">close</mat-icon>-->
+
+            <!--</div>-->
+
+            <!--</div>-->
+
             <ngx-monaco-editor class="editor"
                                [(ngModel)]="code"
                                [options]="{}"
                                [model]="model"></ngx-monaco-editor>
-
-
-            <!--<div class="buttons">-->
-
-            <!--<button mat-raised-button-->
-            <!--color="primary"-->
-            <!--(click)="validate()">-->
-
-            <!--<mat-icon>spellcheck</mat-icon>-->
-
-            <!--Validate-->
-
-            <!--</button>-->
-
-            <!--</div>-->
 
         </div>
 

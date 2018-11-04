@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { EditorComponent } from './editor/editor.component';
-import { GeneratorComponent } from './generator/generator.component';
 import { ControlsComponent } from './controls/controls.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormWizardComponent } from './forms/form-wizard/form-wizard.component';
@@ -120,7 +119,6 @@ const monacoConfig: NgxMonacoEditorConfig = {
 
         ControlsComponent,
         EditorComponent,
-        GeneratorComponent,
         FormWizardComponent,
         PostComponent,
         HomeComponent,

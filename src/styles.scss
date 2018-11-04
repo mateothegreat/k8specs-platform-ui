@@ -54,6 +54,35 @@ h1 {
     
 }
 
+mat-tab-group {
+    
+    mat-tab {
+        
+        .mat-icon {
+            
+            font-size: 14px;
+            height: 14px;
+            width: 14px;
+            
+        }
+        
+    }
+    
+    mat-ink-bar {
+        
+        width: unset !important;
+        
+    }
+    .mat-tab-label {
+        
+        margin-right: 10px;
+        padding: 5px;
+        //padding-left: 20px;
+        width: 100px !important;
+    }
+    
+}
+
 //mat-tab-group, .mat-tab-body, .mat-tab-body-content, .mat-tab-body-wrapper {
 //
 //    height: 100%;
